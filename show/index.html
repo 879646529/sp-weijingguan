@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>微景观小程序信息展示页面</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/init.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="client">
+    <video :src="'static/video/' + back.src" autoplay loop></video>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">微景观小程序</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a @click="toggleBack()" href="javascript:;">
+                            切换壁纸：
+                            <span v-text="back.title"></span>
+                        </a>
+                    </li>
+                    <!--<li>-->
+                        <!--<a @click="togglePhone()" href="javascript:;">-->
+                            <!--手机模型：-->
+                            <!--<span v-if="phone.isShow === true">开</span>-->
+                            <!--<span v-else>关</span>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a @click="show('summary')" href="javascript:;">项目概况</a></li>
+                    <li><a @click="show('plan')" href="javascript:;">时间安排</a></li>
+                    <li class="dropdown">
+                        <a @click="show('requirement')" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            需求工程<span class="caret"></span>
+                        </a>
+                        <ul id="chooseRequire" class="dropdown-menu">
+                            <li><a href="javascript:;" data-type="img" data-url="useCase.jpg">用例图</a></li>
+                            <li><a href="javascript:;" data-type="document" data-url="ucs.html">用例规约</a></li>
+                            <li><a href="javascript:;" data-type="document" data-url="ss.html">补充规约</a></li>
+                            <li><a href="javascript:;" data-type="document" data-url="glossary.html">术语表</a></li>
+                            <li><a href="javascript:;" data-type="file" data-url="微信小程序需求规格说明书.docx">需求规格说明书</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a @click="show('report')" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            项目进展<span class="caret"></span>
+                        </a>
+                        <ul id="chooseReport" class="dropdown-menu">
+                            <li><a href="javascript:;" data-url="report-1.html">微景观小程序第一期-数据确认</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a @click="show('er')" href="javascript:;">ER图</a></li>-->
+                    <li class="dropdown">
+                        <a @click="show('prop')" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            原型图<span class="caret"></span>
+                        </a>
+                        <ul id="chooseProp" class="dropdown-menu">
+                            <li><a href="javascript:;" data-url="device.png">智能设备模块</a></li>
+                            <li><a href="javascript:;" data-url="baike.png">植物百科模块</a></li>
+                            <li><a href="javascript:;" data-url="community.png">社区模块</a></li>
+                            <li><a href="javascript:;" data-url="me.png">我的模块</a></li>
+                        </ul>
+                    </li>
+                    <!--<li class="dropdown">-->
+                        <!--<a @click="show('api')" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+                            <!--接口文档<span class="caret"></span>-->
+                        <!--</a>-->
+                        <!--<ul id="chooseDocu" class="dropdown-menu">-->
+                            <!--<li><a href="javascript:;" data-url="author.html">作者接口文档</a></li>-->
+                            <!--<li><a href="javascript:;" data-url="subject.html">专题接口文档</a></li>-->
+                            <!--<li><a href="javascript:;" data-url="blacklist.html">黑名单管理文档</a></li>-->
+                            <!--<li role="separator" class="divider"></li>-->
+                            <!--&lt;!&ndash;<li><a href="javascript:;">Separated link</a></li>&ndash;&gt;-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <!--<div id="phone" class="con-phone pull-left animated">-->
+                <!--<img src="./static/img/phone-back.png" class="hidden-xs hidden-sm" />-->
+                <!--<iframe class="phone" src="phone.html?#/focus/main"></iframe>-->
+            <!--</div>-->
+            <ul @click="close($event)" id="document" class="con-other pull-right con-other-no-phone">
+                <li class="other-item animated" id="item-summary">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            项目概况
+                            <span class="panel-heading-close">X</span>
+                        </div>
+                        <div class="panel-body">
+                            <iframe src="iframe/summary.html"></iframe>
+                        </div>
+                    </div>
+                </li>
+                <li class="sr-only other-item animated" id="item-plan">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            时间安排
+                            <span class="panel-heading-close">X</span>
+                        </div>
+                        <div class="panel-body">
+                            <iframe src="iframe/plan.html"></iframe>
+                        </div>
+                    </div>
+                </li>
+                <li class="sr-only other-item animated" id="item-requirement">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            {{panel.title.requirement}}
+                            <span class="panel-heading-close">X</span>
+                        </div>
+                        <div class="panel-body">
+                            <img v-if="panel.isRequire" src="static/img/useCase.jpg" />
+                            <iframe v-else id="docuRequire" class="document" src=""></iframe>
+                        </div>
+                    </div>
+                </li>
+                <li class="sr-only other-item animated" id="item-report">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            {{panel.title.report}}
+                            <span class="panel-heading-close">X</span>
+                        </div>
+                        <div class="panel-body">
+                            <iframe id="docuReport" class="document" src="iframe/report/report-1.html"></iframe>
+                        </div>
+                    </div>
+                </li>
+                <li class="sr-only other-item animated" id="item-er">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            ER 图
+                            <span class="panel-heading-close">X</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="pic-body">
+                                <img src="static/img/ER.png" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sr-only other-item animated" id="item-api">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            {{panel.title.api}}
+                            <span class="panel-heading-close">X</span>
+                        </div>
+                        <div class="panel-body">
+                            <iframe id="docuFrame" class="document" src="iframe/api/author.html"></iframe>
+                        </div>
+                    </div>
+                </li>
+                <li class="sr-only other-item animated" id="item-prop">
+                    <div id="prototype" class="panel">
+                        <div class="panel-heading">
+                            {{panel.title.prop + '原型图'}}
+                            <span class="panel-heading-close">X</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="pic-body">
+                                <img id="propImg" src="static/img/prototype-device.png" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="static/js/jquery-1.11.2.min.js"></script>
+<script src="static/js/jquery.backstretch.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/vue.min.js"></script>
+<script>
+    const Client = new Vue({
+        el: "#client",
+        data: {
+            panel: {
+                last: "item-summary",
+                animateIn: ['bounceIn', 'bounceInRight', 'bounceInUp', 'fadeIn', 'fadeInRightBig', 'fadeInUpBig',
+                    'flipInX', 'flipInY', 'lightSpeedIn', 'rotateIn', 'rotateInDownRight', 'rotateInUpRight', 'slideInUp',
+                    'slideInRight', 'zoomIn', 'zoomInRight', 'zoomInUp', 'jackInTheBox'
+                ],
+                animateOut: ['bounceOut', 'bounceOutRight', 'bounceOutUp', 'fadeOut', 'fadeOutRightBig', 'fadeOutUpBig',
+                    'flipOutX', 'flipOutY', 'lightSpeedOut', 'rotateOut', 'rotateOutDownRight', 'rotateOutUpRight', 'slideOutUp',
+                    'slideOutRight', 'zoomOut', 'zoomOutRight', 'zoomOutUp', 'hinge'
+                ],
+                title: {
+                    requirement: "用例图",
+                    report: "项目进展",
+                    prop: "",
+                    api: "接口文档"
+                },
+                isRequire: true
+            },
+            phone: {
+                obj: "",
+                isShow: false
+            },
+            back: {
+                type: 0,
+                title: "blue room",
+                src: "video.mp4"
+            }
+        },
+        mounted: function() {
+            this.$nextTick(function() {
+                const $docuFrame = $("#docuFrame"),
+                    $docuReport = $("#docuReport"),
+                    $propImg = $("#propImg"),
+                    _this = this;
+
+                this.phone.obj = $("#phone");
+                // $.backstretch("static/img/show-back.jpg");
+                $("#chooseDocu").on("click", function(e) {
+                    if(e.target.tagName === "A") {
+                        Client.panel.title.api = e.target.innerText;
+                        $docuFrame.attr("src", "iframe/" + $(e.target).data("url"));
+                    }
+                });
+                $("#chooseRequire").on("click", function(e) {
+                    const target = e.target;
+
+                    if(target.tagName === "A") {
+                        Client.panel.title.requirement = e.target.innerText;
+                        if(target.dataset.type === "document") {
+                            _this.panel.isRequire = false;
+                            setTimeout(function delay() {
+                                $("#docuRequire").attr("src", "iframe/require/" + e.target.dataset.url);
+                            });
+                        } else if(target.dataset.type === "img") {
+                            _this.panel.isRequire = true;
+                        } else {
+                            location.href = "file/" + e.target.dataset.url;
+                        }
+                    }
+                });
+                $("#chooseReport").on("click", function(e) {
+                    if(e.target.tagName === "A") {
+                        Client.panel.title.report = e.target.innerText;
+                        $docuReport.attr("src", "iframe/report/" + $(e.target).data("url"));
+                    }
+                });
+                $("#chooseProp").on("click", function(e) {
+                    if(e.target.tagName === "A") {
+                        Client.panel.title.prop = e.target.innerText;
+                        $propImg.attr("src", "static/img/prototype-" + $(e.target).data("url"));
+                    }
+                });
+            })
+        },
+        methods: {
+            show: function(panelName) {
+                let last = $("#" + this.panel.last),
+                    current = $("#item-" + panelName),
+                    random = Math.floor(Math.random() * this.panel.animateIn.length),
+                    _this = this;
+
+                if(last.hasClass('sr-only')) {
+                    last.attr("class", "other-item animated " + this.panel.animateIn[random]);
+                } else {
+                    if(this.panel.last !== "item-" + panelName) {
+                        last.attr("class", "other-item animated " + this.panel.animateOut[random]);
+                        current.attr("class", "other-item animated " + this.panel.animateIn[random]);
+                        setTimeout(function hidePanel() {
+                            last.addClass("sr-only");
+                            _this.panel.last = "item-" + panelName;
+                        }, 1000)
+                    }
+                }
+            },
+            close(event) {
+                const target = event.target;
+                if(target.tagName === "SPAN") {
+                    const last = $("#" + this.panel.last),
+                        random = Math.floor(Math.random() * this.panel.animateIn.length);
+
+                    last.attr("class", "other-item animated " + this.panel.animateOut[random]);
+                    setTimeout(function hidePanel() {
+                        last.addClass("sr-only");
+                    }, 1000)
+                }
+            },
+            toggleBack: function() {
+                if(this.back.type === 0) {
+                    this.back = {
+                        type: 1,
+                        title: 'dark hag',
+                        src: 'video.webm'
+                    }
+                } else {
+                    this.back = {
+                        type: 0,
+                        title: 'blue room',
+                        src: 'video.mp4'
+                    }
+                }
+            },
+            togglePhone: function() {
+                // let phone = this.phone.obj;
+
+                // if(!this.phone.isShow) {
+                //     // 开启
+                //     $("#document").removeClass("con-other-no-phone");
+                //     setTimeout(function() {
+                //         phone.removeClass("sr-only");
+                //     }, 1000);
+                //     setTimeout(function() {
+                //         phone.removeClass("slideOutLeft").addClass("slideInLeft");
+                //     }, 1100);
+                //     this.phone.isShow = true;
+                // } else {
+                //     // 关闭
+                //     phone.removeClass("slideInLeft").addClass("slideOutLeft");
+                //     this.phone.isShow = false;
+                //     setTimeout(function() {
+                //         phone.addClass("sr-only");
+                //         $("#document").addClass("con-other-no-phone");
+                //     }, 1000);
+                // }
+            }
+        }
+    });
+</script>
+</body>
+</html>

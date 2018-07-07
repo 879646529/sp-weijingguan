@@ -1,0 +1,22 @@
+.info-list {
+  display: flex;
+  flex-direction: row;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+.info-item:last-child {
+  border-right: none;
+}
+.info-item-title {
+  color: #666;
+}
+.info-item-text {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}

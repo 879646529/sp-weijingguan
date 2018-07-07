@@ -1,0 +1,33 @@
+.message-container {
+  padding: 0 30rpx;
+}
+.message-list {
+  display: flex;
+  flex-direction: column;
+}
+.message-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #DCDFE6;
+}
+.message-info {}
+.message-info-url {
+  color: #409EFF;
+}
+.message-info-prompt {
+  margin: 0 20rpx;
+}
+.message-reply {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #DCDFE6;
+  color: #fff;
+  border-radius: 10rpx;
+}
+.message-date {
+  margin-top: 20rpx;
+  color: #909399;
+  font-size: 24rpx;
+}

@@ -1,0 +1,28 @@
+<view class="baike-container">
+  <view class="baike-header">
+    <swiper class="baike-broad">
+      <swiper-item></swiper-item>
+    </swiper>
+    <view class="search-box">
+      <image class="search-icon"></image>
+      <input class="search-input" type="text" placeholder='输入植物名称进行搜索'></input>
+    </view>
+  </view>
+  <view class="baike-main">
+    <view class="main-box main-today">
+      <view class="box-header">
+        <view class="box-header-left">
+          <image class="box-header-icon"></image>
+          <text class="box-header-title">今日植物</text>
+        </view>
+        <view class="box-header-right">
+          <text>往期植物</text>
+          <image class=""></image>
+        </view>
+      </view>
+      <view class="box-body">
+        
+      </view>
+    </view>
+  </view>
+</view>

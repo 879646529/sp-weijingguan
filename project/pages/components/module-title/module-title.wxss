@@ -1,0 +1,30 @@
+.module-title {
+  height: 100rpx;
+  padding: 20rpx 0;
+}
+.module-title-icon {
+  width: 60rpx;
+  height: 60rpx;
+  background-color: red;
+  vertical-align: middle;
+}
+.module-title-text {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  vertical-align: middle;
+}
+.module-title-more {
+  height: 60rpx;
+  line-height: 60rpx;
+  float: right;
+}
+.module-title-more-text {
+  vertical-align: middle;
+}
+.module-title-more-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+  background-color: green;
+}

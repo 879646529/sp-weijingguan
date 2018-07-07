@@ -1,0 +1,38 @@
+@import "../template/info-template.wxss";
+.home-container {
+  margin: 0 auto;
+  padding: 0 30rpx 40rpx;
+}
+.home-info {
+  padding: 40rpx 0 20rpx;
+}
+.info-header {
+  display: flex;
+  flex-direction: column;
+  height: 340rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 0 auto;
+  border-radius: 80rpx;
+}
+.nickname {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.focus-btn {
+  width: 160rpx;
+  height: 50rpx;
+  margin-top: 20rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  background-color: #169BD5;
+  font-size: 26rpx;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 5px 5px 2px rgba(00,102,255,0.3);
+}

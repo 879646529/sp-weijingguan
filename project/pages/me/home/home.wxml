@@ -1,0 +1,21 @@
+<import src="../template/info-template.wxml" />
+<view class="home-container">
+  <view class="home-info">
+    <view class="info-header">
+      <image class="avatar" src="/images/avatar.jpg"></image>
+      <text class="nickname">游学者、墨槿</text>
+      <button class="focus-btn">关注</button>
+    </view>
+    <template is="infoTemplate" />
+  </view>
+  <view class="home-main">
+    <view class="home-new">
+      <module-title></module-title>
+      <module-article></module-article>
+    </view>
+    <view class="home-collection">
+      <module-title></module-title>
+      <module-article></module-article>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+<template name="infoTemplate">
+  <view class="info-list">
+    <view class="info-item">
+      <text class="info-item-title">关注</text>
+      <text class="info-item-text">10</text>
+    </view>
+    <view class="info-item">
+      <text class="info-item-title">粉丝</text>
+      <text class="info-item-text">10</text>
+    </view>
+    <view class="info-item">
+      <text class="info-item-title">收藏</text>
+      <text class="info-item-text">10</text>
+    </view>
+    <view class="info-item">
+      <text class="info-item-title">文章</text>
+      <text class="info-item-text">10</text>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,11 @@
+page {
+  font-size: 28rpx;
+}
+view {
+  box-sizing: border-box;
+}
+.list-end {
+  margin-top: 50rpx;
+  text-align: center;
+  color: #909399;
+}

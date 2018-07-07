@@ -1,0 +1,30 @@
+<view class="message-container">
+  <view class="message-list">
+    <view class="message-item">
+      <view class="message-info">
+        <text class="message-info-url">乔喵的水彩课堂</text>
+        <text class="message-info-prompt">赞了您的文章</text>
+        <text class="message-info-url">《七里香：那一抹幽香》</text>
+      </view>
+      <view class="message-date">2018-04-26 18:13</view>
+    </view>
+    <view class="message-item">
+      <view class="message-info">
+        <text class="message-info-url">乔喵的水彩课堂</text>
+        <text class="message-info-prompt">赞了您的文章</text>
+        <text class="message-info-url">《植物养护小知识之七里香》</text>
+      </view>
+      <view class="message-date">2018-04-26 18:13</view>
+    </view>
+    <view class="message-item">
+      <view class="message-info">
+        <text class="message-info-url">乔喵的水彩课堂</text>
+        <text class="message-info-prompt">评论了您的文章</text>
+        <text class="message-info-url">《植物养护小知识之七里香》</text>
+      </view>
+      <view class="message-reply">今后可以讲解下杜鹃花相关的养护小知识吗？</view>
+      <view class="message-date">2018-04-26 18:13</view>
+    </view>
+  </view>
+  <view class="list-end">----- 已经到底啦 -----</view>
+</view>

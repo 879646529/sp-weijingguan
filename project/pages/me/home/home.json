@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "module-title": "/pages/components/module-title/module-title",
+    "module-article": "/pages/components/module-article/module-article"
+  }
+}

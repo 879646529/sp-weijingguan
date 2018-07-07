@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用例规约</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1 id="-">用例规约</h1>
+<pre><code>1. 获取检测数据
+    1.1 简要说明
+
+2. 设置植物品种
+    2.1 简要说明
+    用户需要手动上传植物的照片，以及在提供的选项中选择相应的植物。设置植物之
+    后，系统会根据当前植物相关的生长数据来判断植物的生长态势。
+    2.2 事件流
+    2.2.1 基础流
+    （1）用户进入到“智能设备”主界面，面临以下分歧：
+    当用户点击植物图片时，执行“上传植物照片”子流程。
+    当用户点击“设置植物”按钮时，执行“设置植物品种”子流程。
+    2.2.1.1 上传植物照片
+    用户点击植物图片后，选择手机相册中合适的植物照片，点击确认后即可完成植物照片上传。
+    2.2.1.2 设置植物品种
+    在“设置植物”品种页面，在下拉框中或搜索框中找到相应的植物即可。
+    2.3 特殊需求
+    无
+    2.4 前置条件
+    无
+    2.5 后置条件
+    （1）植物图片显示最近上传的图片。
+    （2）数据标准修改为当前设置植物品种所对应的数据。
+
+3. 生成数据报告
+    3.1 简要说明
+    用户能够主动生成数据报告，数据报告包括今日检测的次数，折线图形式显示的检测数据，
+    以及计算所得的平均数值，相应的总评和养护建议。
+    3.2 事件流
+    3.2.1 基础流
+    （1）用户在“智能设备”主界面点击“数据报告”按钮，即可跳转到“数据报告”页面。
+    （2）“数据报告”页面显示今日检测的总次数等相应的数据。
+    3.2.2 备选流
+    3.2.2.1 检测数据为空
+    若今日还没有进行数据检测，那么在“数据报告”页面显示一张图片，图片上标注相应的提示。
+    3.3 特殊需求
+    无
+    3.4 前置条件
+    用户已经设置植物品种。
+    3.5 后置条件
+    无
+
+4. 查看历史记录
+    4.1 简要说明
+    用户可以查看最近一周或最近一月的历史记录，包括历史轨迹（折线图）以及每个时间节点的详细报告。
+    4.2 事件流
+    4.2.1 基础流
+    （1）用户在“智能设备”主界面点击“历史记录”按钮，即可跳转到“历史记录”页面。
+    （2）在“历史记录”页面，面临以下分歧：
+    当点击“周历史轨迹”，则执行“查看周历史轨迹”子流程。
+    当点击“月历史轨迹”，则执行“查看月历史轨迹”子流程。
+    4.2.1.1 查看周历史轨迹
+    显示最近一周的历史轨迹，包括这一周每一天的详细数据报告。
+    4.2.1.2 查看月历史轨迹
+    显示最近一月的历史轨迹，包括这一月每一周的详细数据报告。
+    4.2.2 备选流
+    4.2.2.1 无数据处理
+    当最近一周或最近一月都未进行数据检测时，以图片形式给出相应的提示。
+    4.3 特殊需求
+    无
+    4.4 前置条件
+    用户已经设置植物品种。
+    4.5 后置条件
+    无
+
+5. 查看今日植物
+    5.1 简要说明
+    小程序每日推荐一颗植物，用户也可以通过点击“往期植物”进入到“植物历”页面，在该页面
+    可以查看往日推荐的植物。
+    5.2 事件流
+    5.2.1 基础流
+    （1）进入“百科”主界面时，即可查看今日推荐的植物。
+    （2）点击“往期植物”进入到“植物历”页面，在该页面能够查看往日推荐的植物。
+    5.3 特殊需求
+    每日自动更新“今日植物”。
+    5.4 前置条件
+    无
+    5.5 后置条件
+    无
+
+6. 查看热门搜索
+    6.1 简要说明
+    小程序会记录下用户每次搜索的内容，并将其存储到相应的数据库中。通过一定的算法推算
+    出目前搜索次数最多的植物，将这些植物呈现在页面上。
+    6.2 事件流
+    6.2.1 基础流
+    （1）进入“百科”主界面时，即可查看热门搜索的植物。
+    （2）点击“换一批”图标可以更换一批植物。
+    （3）点击“更多热门”进入到“热门搜索”页面，在该页面能够查看热门top20的植物。
+    6.3 特殊需求
+    无
+    6.4 前置条件
+    无
+    6.5 后置条件
+    无
+
+7. 检索植物百科
+    7.1 简要说明
+    用户可以在搜索框内输入植物的名称来检索该植物的信息。或者通过植物分类列表来查看各分类下的植物。
+    7.2 事件流
+    7.2.1 基础流
+    （1）进入“百科”主界面时，面临以下分歧：
+    当用户点击搜索框时，执行“检索百科”子流程。
+    当用户下滑到底部植物分类时，执行“查看植物分类”子流程。
+    7.2.1.1 检索百科
+    点击搜索框会跳转到搜索页面，在搜索页面的搜索框内输入植物的名称后，会在下
+    方呈现搜索结果，且每一次搜索都会被记录。
+    7.2.1.2 查看植物分类
+    “植物分类”位于“百科主界面”底部区域，用户可以通过切换 tab 栏实现查看不同
+    分类下的植物。点击查看更多，可查看当前分类下的所有植物。
+    7.2.2 备选流
+    7.2.2.1 检索无果
+    若检索没有获取相应植物，则在页面上显示“未能检索到相应植物”相关的提示。
+    7.3 特殊需求
+    无
+    7.4 前置条件
+    无
+    7.5 后置条件
+    无
+
+8. 看帖、发帖、回复
+    8.1 简要说明
+    用户能够浏览其他用户的帖子并进行评论，也可以主动发帖以及回复其他用户的评论。
+    8.2 事件流
+    8.2.1 基础流
+    （1）进入“社区”主界面，切换“热门”、“最新”以及“关注”，可以浏览相应模块下
+    的帖子，此时面临以下分歧：
+    当点击帖子卡片时，执行“看帖”子流程；
+    当点击“发帖”按钮时，执行“发帖”子流程。
+    （2）进入帖子页面时，除了浏览帖子内容之外，可以对帖子的内容发表评论、或
+    回复评论。此时面临以下分歧：
+    当点击评论输入框时，执行“评论”子流程；
+    当点击评论，在弹出的 actionSheet 面板中选择“回复”时，执行“回复”子流程。
+    8.2.1.1 看帖
+    点击相应的帖子卡片，即可进入到对应帖子页面。在该页面能够看到帖子的文字以
+    及图片等内容。
+    8.2.1.2 发帖
+    点击“发帖”按钮，即可进入到发帖页面。在该页面用户需要输入文章标题、文字内
+    容。也可以上传图片，选择帖子所对应的话题。最后点击“发布”按钮即可发布帖子。
+    8.2.1.3 评论
+    点击“评论输入框”，即可进入到评论页面。在该页面用户需要输入评论内容。除此
+    之外，也可以上传图片。最后点击“发表”按钮即可发布评论。
+    8.2.1.4 回复
+    回复操作同评论。
+    8.3 特殊需求
+    无
+    8.4 前置条件
+    无
+    8.5 后置条件
+    无
+
+9. 检索帖子
+    9.1 简要说明
+    用户可以在社区板块下检索想要阅读的帖子。通过输入标题即可检索相应的内容。
+    9.2 事件流
+    9.2.1 基础流
+    （1）进入“社区”主界面，在轮播图的下方有一个搜索输入框，点击该输入框即可
+    进入检索页面。
+    （2）在检索页面的搜索框内输入帖子的标题后，会在下方呈现搜索结果，且每一
+    次搜索都会被记录。
+    9.2.2 备选流
+    9.2.2.1 检索无果
+    若检索没有获取帖子，则在页面上显示“未能检索到相应帖子”相关的提示。
+    9.3 特殊需求
+    无
+    9.4 前置条件
+    无
+    9.5 后置条件
+    无
+
+10. 收藏、分享、点赞
+    10.1 简要说明
+    用户可以对喜欢的帖子进行收藏、分享以及点赞。
+    10.2 事件流
+    10.2.1 基础流
+    （1）进入“社区”主界面后，可以浏览已有的帖子。对每一张帖子卡片可以执行以下分歧：
+    当点击“收藏”按钮时，则执行“收藏”子流程；
+    当点击“分享”按钮时，则执行“分享”子流程；
+    当点击“点赞”按钮上，则执行“点赞”子流程。
+    10.2.1.1 收藏
+    当用户点击“收藏”按钮后，即可将当前的帖子收藏的“我的收藏”中。
+    10.2.1.2 分享
+    当用户点击“分享”按钮后，即可将当前的帖子分享到朋友圈或者微信好友。
+    10.2.1.3 点赞
+    当用户点击“点赞”按钮后，即可为当前帖子点赞。
+    10.3 特殊需求
+    无
+    10.4 前置条件
+    当前用户已经登录。
+    10.5 后置条件
+    无
+
+11. 关注用户
+    11.1 简要说明
+    用户可以关注感兴趣的其他用户。成功关注其他用户后，当关注用户发布新的帖子
+    时，会在社区的关注模块中显示。对已关注的用户也可以取消关注。取消之后，该
+    用户的帖子不会出现在关注模块中。
+    11.2 事件流
+    11.2.1 基础流
+    （1）用户可以在帖子页面点击用户信息右方的“+”号按钮，表示关注当前用户。
+    再次点击，则取消关注。
+    （2）用户也可以在“个人主页”、“我的关注”以及“我的粉丝”这三个页面关注或取
+    消关注其他用户。
+    11.3 特殊需求
+    无
+    11.4 前置条件
+    当前用户已经登录。
+    11.5 后置条件
+    （1）关注用户添加到当前用户的关注列表中。
+    （2）取消关注用户从当前用户的关注列表中移除。
+
+12. 查看个人信息
+    12.1 简要说明
+    用户进入“我的”主界面，可以查看用户的头像、昵称以及关注、粉丝、收藏、文章
+    消息等内容。
+    12.2 事件流
+    12.2.1 基础流
+    （1）用户进入“我的”主界面，可以查看当前用户的所有信息，包括头像、昵称、
+    关注数、粉丝数、收藏文章数以及文章数。
+    （2）在该页面，面临以下分歧：
+    当点击“我的关注”时，执行“查看我的关注”子流程；
+    当点击“我的粉丝”时，执行“查看我的粉丝”子流程；
+    当点击“我的收藏”时，执行“查看我的收藏”子流程；
+    当点击“我的文章”时，执行“查看我的文章”子流程；
+    当点击“我的消息”时，执行“查看我的消息”子流程；
+    当点击“帮助中心”时，执行“查看帮助中心”子流程；
+    当点击“联系我们”时，执行“查看联系我们”子流程；
+    12.2.1.1 查看我的关注
+    点击“我的关注”，即进入到“我的关注”页面。在该页面可以查看当前用户关注的其
+    他用户，用户能够对已有用户执行取关或重新关注操作。
+    12.2.1.2 查看我的粉丝
+    点击“我的粉丝”，即进入到“我的粉丝”页面。在该页面可以查看关注当前用户的其
+    他用户，用户能够对这些用户执行关注或取消关注操作。
+    12.2.1.3 查看我的收藏
+    点击“我的收藏”，即进入到“我的收藏”页面。在该页面可以查看当前用户收藏的文章。
+    12.2.1.4 查看我的文章
+    点击“我的文章”，即进入到“我的文章”页面。在该页面可以查看当前用户发表的文章。
+    12.2.1.5 查看我的消息
+    点击“我的消息”，即进入到“我的消息”页面。在该页面可以查看当前用户收到的消息。
+    12.2.1.6 查看帮助中心
+    暂时未定
+    12.2.1.7 查看联系我们
+    暂时未定
+    12.3 特殊需求
+    无
+    12.4 前置条件
+    当前用户已经登录。
+    12.5 后置条件
+    无
+
+13. 查看个人主页
+    13.1 简要说明
+    每一位用户都有其个人主页，在该页面显示当前用户的个人信息以及最新的文章和
+    收藏的文章。
+    13.2 事件流
+    13.2.1 基础流
+    （1）点击用户头像或昵称，即可进入该用户的个人主页。
+    （2）在其个人主页能够查看当前用户的基础信息，除此之外还可以选择关注未关
+    注的用户，或取关已关注的用户。
+    （3）个人主页下方是当前用户最新发表的文章以及最近收藏的文章。
+    13.2.2 备选流
+    13.2.2.1 不存在最新文章
+    若该用户没有发表文章，则最新文章区域显示“没有文章”之类的提示文字或图片。
+    13.2.2.2 不存在最近收藏
+    若该用户没有收藏文章，则最近收藏区域显示“没有收藏”之类的提示文字或图片。
+    13.3 特殊需求
+    无
+    13.4 前置条件
+    当前用户已经登录。
+    13.5 后置条件
+    无
+</code></pre>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

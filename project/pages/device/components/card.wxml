@@ -1,0 +1,37 @@
+<view class="component-card">
+  <view class="card-header">
+    <view class="header-date">
+      <text class="weekday">星期二</text>
+      <text class="date">2018年5月1日</text>
+    </view>
+    <view class="header-count">检测次数：3次</view>
+  </view>
+  <view class="card-main">
+    <slot name="swiper"></slot>
+    <view class="main-block main-data">
+      <view class="main-block-header">
+        <image class="main-block-header-icon"></image>
+        <text class="main-block-header-title">平均数据</text>
+      </view>
+      <view class="data-list">
+        <view class="data-item">
+          <image class="data-icon"></image>
+          <text class='data-text'>温度</text>
+        </view>
+        <view class="data-item">
+          <image class="data-icon"></image>
+          <text class='data-text'>水份</text>
+        </view>
+        <view class="data-item">
+          <image class="data-icon"></image>
+          <text class='data-text'>光照</text>
+        </view>
+        <view class="data-item">
+          <image class="data-icon"></image>
+          <text class='data-text'>肥力</text>
+        </view>
+      </view>
+    </view>
+    <slot name="footer"></slot>
+  </view>
+</view>

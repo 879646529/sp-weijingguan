@@ -1,0 +1,52 @@
+<import src="template/info-template.wxml" />
+<view class="me-container">
+  <image class="me-back" src="/images/back.jpg" mode="aspectFill"></image>
+  <view class="me-main">
+    <view class="me-info">
+      <view class="info-header">
+        <image class="info-avatar" src="/images/avatar.jpg"></image>
+        <text class="info-nickname">游学者、墨槿</text>
+      </view>
+      <template is="infoTemplate" />
+    </view>
+    <view class="me-opear">
+      <view class="opear-item">
+        <image class="opear-item-icon"></image>
+        <text class="opear-item-title">我的关注</text>
+        <image class="opear-item-arrow">></image>
+      </view>
+      <view class="opear-item">
+        <image class="opear-item-icon"></image>
+        <text class="opear-item-title">我的粉丝</text>
+        <image class="opear-item-arrow">></image>
+      </view>
+      <view class="opear-item">
+        <image class="opear-item-icon"></image>
+        <text class="opear-item-title">我的收藏</text>
+        <image class="opear-item-arrow">></image>
+      </view>
+      <view class="opear-item">
+        <image class="opear-item-icon"></image>
+        <text class="opear-item-title">我的文章</text>
+        <image class="opear-item-arrow">></image>
+      </view>
+      <view class="opear-item">
+        <image class="opear-item-icon"></image>
+        <text class="opear-item-title">我的消息</text>
+        <image class="opear-item-arrow">></image>
+      </view>
+    </view>
+    <view class="me-opear">
+      <view class="opear-item">
+        <image class="opear-item-icon"></image>
+        <text class="opear-item-title">帮助中心</text>
+        <view class="opear-item-arrow">></view>
+      </view>
+      <view class="opear-item">
+        <image class="opear-item-icon"></image>
+        <text class="opear-item-title">联系我们</text>
+        <image class="opear-item-arrow">></image>
+      </view>
+    </view>
+  </view>
+</view>

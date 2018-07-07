@@ -1,0 +1,43 @@
+/* pages/device/report/report.wxss */
+.main-echarts {
+  height: 400rpx;
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+.main-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tab-item {
+  width: 120rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border: 1px solid #666;
+  border-radius: 4px;
+}
+.main-block {
+  margin-top: 30rpx;
+}
+.main-block-header {
+  display: flex;
+  flex-direction: row;
+}
+.main-block-header-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  background-color: #f00;
+}
+.main-block-header-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.assess-text,
+.protect-text {
+  font-size: 28rpx;
+  color: #606266;
+}

@@ -1,0 +1,50 @@
+<view class="device-container">
+  <view class="device-header">
+    <text class="device-date">最新记录于：2018-05-01 14：02：05</text>
+    <view class="device-plant">
+      <image src="plant-img"></image>
+    </view>
+    <view class="plant-status">
+      <image class="status-img"></image>
+      <text class="status-text">生长状况良好</text>
+    </view>
+  </view>
+  <view class="device-main">
+    <view catchtap='goTo' class="device-oper">
+      <view class="oper-item">
+        <image class="oper-icon" src="" data-url="report"></image>
+        <text class="oper-text" data-url="report">数据报告</text>
+      </view>
+      <view class="oper-item">
+        <image class="oper-icon" src="" data-url="setting"></image>
+        <text class="oper-text" data-url="setting">设置植物</text>
+      </view>
+      <view class="oper-item">
+        <image class="oper-icon" src="" data-url="history"></image>
+        <text class="oper-text" data-url="history">历史记录</text>
+      </view>
+    </view>
+    <view class="status-warning">
+      <image class="warning-icon"></image>
+      <text class="warning-text">警告：光照过强，请将植物移至光照较弱处</text>
+    </view>
+    <view class="device-data">
+      <view class="data-item">
+        <image class="data-icon" src=''></image>
+        <text class="data-text">温度：</text>
+      </view>
+      <view class="data-item">
+        <image class="data-icon" src=''></image>
+        <text class="data-text">温度：</text>
+      </view>
+      <view class="data-item">
+        <image class="data-icon" src=''></image>
+        <text class="data-text">温度：</text>
+      </view>
+      <view class="data-item">
+        <image class="data-icon" src=''></image>
+        <text class="data-text">温度：</text>
+      </view>
+    </view>
+  </view>
+</view>

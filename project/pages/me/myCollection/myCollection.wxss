@@ -1,0 +1,22 @@
+.collection-container {
+  padding: 0 30rpx;
+}
+.collection-list {
+  display: flex;
+  flex-direction: column;
+}
+.collection-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #DCDFE6;
+}
+.collection-title {
+  color: #303133;
+}
+.collection-date {
+  color: #909399;
+  font-size: 24rpx;
+}

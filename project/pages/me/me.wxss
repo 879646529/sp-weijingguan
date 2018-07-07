@@ -1,0 +1,71 @@
+@import "template/info-template.wxss";
+.me-back {
+  width: 100%;
+  height: 260rpx;
+}
+.me-main {
+  padding: 0 30rpx;
+}
+.me-info {
+  position: relative;
+  z-index: 1000;
+  top: -80rpx;
+  height: 280rpx;
+  padding: 0 50rpx;
+  box-shadow: 0 5px 5px 2px rgba(0,0,0,0.35);
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.info-header {
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+}
+.info-avatar {
+  position: absolute;
+  top: -80rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100rpx;
+  /* border: 1px solid #999; */
+}
+.info-nickname {
+  height: 120rpx;
+  line-height: 120rpx;
+  margin-left: 240rpx;
+  font-size: 40rpx;
+}
+.me-opear {
+  width: 100%;
+  box-shadow: 0 2px 10px 2px rgba(0,0,0,0.35);
+  border-radius: 10rpx;
+  margin-bottom: 40rpx;
+  padding: 0 50rpx 0 30rpx;
+}
+.opear-item {
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1px solid #DCDFE6;
+  padding: 30rpx 0 30rpx 0;
+}
+.opear-item:last-child {
+  border-bottom: none;
+}
+.opear-item-icon {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: red;
+  vertical-align:middle;
+
+}
+.opear-item-title {
+  margin-left: 40rpx;
+  color: #333;
+  vertical-align:middle;
+}
+.opear-item-arrow {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  background-color: green;
+}

@@ -1,0 +1,9 @@
+<view class="module-title">
+  <image src="" class="module-title-icon"></image>
+  <text class="module-title-text">最新文章</text>
+  <slot></slot>
+  <view class="module-title-more">
+    <text class="module-title-more-text">更多</text>
+    <image src="" class="module-title-more-icon"></image>
+  </view>
+</view>

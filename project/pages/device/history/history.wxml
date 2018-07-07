@@ -1,0 +1,12 @@
+<view class="history-container">
+  <view class="history-header">
+    <view class="header-item header-item-selected">周历史轨迹</view>
+    <view class="header-item">月历史轨迹</view>
+  </view>
+  <view class="history-record">
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <block wx:for="{{[1, 2, 3, 4, 5, 6, 7]}}">
+    <record-card></record-card>
+  </block>
+</view>

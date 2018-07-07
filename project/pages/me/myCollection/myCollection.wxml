@@ -1,0 +1,13 @@
+<view class="collection-container">
+  <view class="collection-list">
+    <view class="collection-item">
+      <text class="collection-title">《七里香:那一抹幽香》</text>
+      <text class="collection-date">2018-04-26 18:13</text>
+    </view>
+    <view class="collection-item">
+      <text class="collection-title">《七里香:那一抹幽香》</text>
+      <text class="collection-date">2018-04-26 18:13</text>
+    </view>
+  </view>
+  <view class="list-end">----- 已经到底啦 -----</view>
+</view>

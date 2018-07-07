@@ -1,0 +1,72 @@
+.component-card {
+  width: 650rpx;
+  margin: 20px auto;
+  padding: 20rpx;
+  border: 1px solid #DCDFE6;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.5);
+}
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80rpx;
+}
+.header-date {
+  display: flex;
+  flex-direction: column;
+  width: 200rpx;
+}
+.weekday {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.date {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.header-count {
+  font-size: 28rpx;
+  color: #606266;
+  line-height: 80rpx;
+}
+.card-main {
+  margin-top: 20rpx;
+}
+.main-block {
+  margin-top: 30rpx;
+}
+.main-block-header {
+  display: flex;
+  flex-direction: row;
+}
+.main-block-header-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  background-color: #f00;
+}
+.main-block-header-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.data-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20rpx;
+}
+.data-item {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 1;
+}
+.data-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  background-color: #f00;
+}
+.data-text {
+  font-size: 28rpx;
+}

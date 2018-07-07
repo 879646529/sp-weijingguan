@@ -1,0 +1,113 @@
+.device-container {
+  padding: 0 40rpx;
+}
+/* 首部区域 */
+.device-header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  text-align: center;
+}
+.device-date {
+  font-size: 13px;
+  color: #666;
+}
+.device-plant {
+  width: 340rpx;
+  height: 340rpx;
+  margin: 15px auto 0;
+  border: 1px solid #666;
+  border-radius: 170rpx;
+}
+.plant-status {
+  display: flex;
+  flex-direction: row;
+  height: 60rpx;
+  margin-top: 15px;
+  justify-content: center;
+}
+.status-img {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  background-color: #f00;
+}
+.status-text {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 18px;
+  color: green;
+}
+.device-main {
+  padding-top: 30px;
+}
+/* 主体部分-操作区域 */
+.device-oper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 50rpx;
+}
+.oper-item {
+  display: flex;
+  flex-direction: row;
+  height: 40rpx;
+  line-height: 40rpx;
+  flex-basis: 1;
+}
+.oper-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  background-color: #f00;
+}
+.oper-text {
+  font-size: 16px;
+  color: #333;
+}
+.status-warning {
+  display: flex;
+  flex-direction: row;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 40px;
+  justify-content: center;
+}
+.warning-icon {
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #f00;
+  margin-right: 10rpx;
+}
+.warning-text {
+  font-size: 14px;
+  color: #f00;
+}
+/* 数据区域 */
+.device-data {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 300rpx;
+  align-items: center;
+  margin-top: 25px;
+}
+.data-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 320rpx;
+  height: 120rpx;
+  border: 1px solid #DCDFE6;
+  border-radius: 5px;
+}
+.data-icon {
+  width: 60rpx;
+  height: 60rpx;
+  background-color: #f00;
+  margin: 0 20rpx;
+}
+.data-text {
+  font-size: 16px;
+}

@@ -1,0 +1,30 @@
+<view class="module-article">
+  <view class="module-article-header"></view>
+  <view class="module-article-main">
+    <text class="module-article-main-title">《七里香：那一抹幽香》</text>
+    <view class="module-article-main-content">
+      中国植物志收载七里香的正名为：千里香，为芸香科小乔木或灌木。它树姿优美，枝叶秀......
+      <text class="module-article-main-content-all">全文</text>
+    </view>
+    <view class="module-article-image-list">
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+      <image src="/images/avatar.jpg" class="module-article-image"></image>
+    </view>
+  </view>
+  <view class="module-article-footer">
+    <text class="module-article-type">植物养护</text>
+    <view class="module-article-info">
+      <image src="" class="module-article-info-icon"></image>
+      <text class="module-article-info-text">999</text>
+      <image src="" class="module-article-info-icon"></image>
+      <text class="module-article-info-text">999</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+.history-container {
+  display: flex;
+  flex-direction: column;
+}
+.history-header {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: row; 
+}
+.header-item {
+  width: 50%;
+  color: #09f;
+  background-color: #fff;
+  border-bottom: 1px solid #09f;
+  font-size: 26rpx;
+}
+.header-item-selected {
+  color: #fff;
+  background-color: #09f;
+}
+.history-record {
+  width: 650rpx;
+  height: 400rpx;
+  margin: 20rpx auto;
+}

@@ -1,0 +1,34 @@
+<report-card>
+  <view slot="swiper">
+    <swiper class="main-echarts">
+      <swiper-item>
+        <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+      </swiper-item>
+      <swiper-item>
+        <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+      </swiper-item>
+    </swiper>
+    <view class="main-tab">
+      <view class="tab-item">温度</view>
+      <view class="tab-item">水份</view>
+      <view class="tab-item">光照</view>
+      <view class="tab-item">肥力</view>
+    </view>
+  </view>
+  <view slot="footer">
+    <view class="main-block main-assess">
+      <view class="main-block-header">
+        <image class="main-block-header-icon"></image>
+        <text class="main-block-header-title">总评</text>
+      </view>
+      <text class="assess-text">三等奖ad哈USD哈苏大花洒U盾话说得好</text>
+    </view>
+    <view class="main-block main-protect">
+      <view class="main-block-header">
+        <image class="main-block-header-icon"></image>
+        <text class="main-block-header-title">养护小贴士</text>
+      </view>
+      <text class="protect-text"></text>
+    </view>
+  </view>
+</report-card>

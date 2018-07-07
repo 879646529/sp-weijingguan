@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/me/myMessage/myMessage",
+    "pages/me/myCollection/myCollection",
+    "pages/me/myFocus/myFocus",
+    "pages/me/home/home",
+    "pages/me/me",
+    "pages/baike/baike",
+    "pages/device/history/history",
+    "pages/device/report/report",
+    "pages/device/device",
+    "pages/welcome/welcome",
+    "pages/community/community"
+  ],
+  "window": {},
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/device/device",
+        "text": "智能设备",
+        "iconPath": "/images/tab/yuedu.png"
+      },
+      {
+        "pagePath": "pages/baike/baike",
+        "text": "植物百科"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  }
+}

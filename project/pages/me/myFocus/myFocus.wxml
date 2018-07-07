@@ -1,0 +1,15 @@
+<view class="focus-container">
+  <view class="focus-list">
+    <view class="focus-item">
+      <image class="focus-avatar" src="/images/avatar.jpg"></image>
+      <text class="focus-nickname">乔喵的水彩课堂</text>
+      <view class="unfocus-btn">取消关注</view>
+    </view>
+    <view class="focus-item">
+      <image class="focus-avatar" src="/images/avatar.jpg"></image>
+      <text class="focus-nickname">乔喵的水彩课堂</text>
+      <view class="unfocus-btn">取消关注</view>
+    </view>
+  </view>
+  <view class="list-end">----- 已经到底啦 -----</view>
+</view>
