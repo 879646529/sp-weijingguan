@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-07-14 12:50:39
--- 服务器版本： 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: 2018-07-15 11:13:07
+-- 服务器版本： 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -36,6 +34,14 @@ CREATE TABLE `ftopic` (
   `Cbrief` varchar(128) COLLATE utf8_bin NOT NULL COMMENT '话题简介'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='记录话题信息';
 
+--
+-- 转存表中的数据 `ftopic`
+--
+
+INSERT INTO `ftopic` (`Tid`, `Ytitle`, `Cbrief`) VALUES
+(1, '植物养护', '植物养护相关的文章'),
+(2, '冷门植物小知识', '一些比较冷门的植物小知识');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +63,8 @@ CREATE TABLE `gmycollection` (
 CREATE TABLE `iuser` (
   `Hwxkey` char(28) COLLATE utf8_bin NOT NULL COMMENT '微信用户标识号',
   `Jaccount` char(20) COLLATE utf8_bin NOT NULL COMMENT '用户账号',
+  `Uhead` varchar(32) COLLATE utf8_bin NOT NULL COMMENT '用户头像',
+  `Onickname` varchar(12) COLLATE utf8_bin NOT NULL COMMENT '用户昵称',
   `Nfocus` int(11) DEFAULT '0' COMMENT '关注数',
   `Mfans` int(11) DEFAULT '0' COMMENT '粉丝数',
   `Hcollect` int(11) DEFAULT '0' COMMENT '收藏数',
@@ -67,9 +75,21 @@ CREATE TABLE `iuser` (
 -- 转存表中的数据 `iuser`
 --
 
-INSERT INTO `iuser` (`Hwxkey`, `Jaccount`, `Nfocus`, `Mfans`, `Hcollect`, `Darticle`) VALUES
-('o8Cqe4h8OtYHf5MdhQ8egzce3oQo', '893:9955,=5%%<174808', 0, 0, 0, 0),
-('o8Cqe4qtrNqU_jiNW7EyLi8JCJx0', '8934:-3243=368686263', 0, 0, 0, 0);
+INSERT INTO `iuser` (`Hwxkey`, `Jaccount`, `Uhead`, `Onickname`, `Nfocus`, `Mfans`, `Hcollect`, `Darticle`) VALUES
+('o8Cqe4h8OtYHf5MdhQ8egzce3oQo', 'SZLPaPMX\\NpdQ`247834', '', '岁末的温染', 2, 1, 2, 2),
+('o8Cqe4qtrNqUL7iN5wEyLi8JCJx0', 'SZLr`cA[V_ZAFT611879', '', '棋三不惑', 2, 2, 1, 1),
+('o8Cqe4qtrNqU_jiNW7EyLi8JCJx0', 'SZLr`cd[G_ZAFT518319', '', '大屁二', 1, 2, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `jmythumbsup`
+--
+
+CREATE TABLE `jmythumbsup` (
+  `Ntid` char(32) COLLATE utf8_bin NOT NULL COMMENT '文章号',
+  `Iuser` char(20) COLLATE utf8_bin NOT NULL COMMENT '用户账号'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='记录用户点赞文章信息';
 
 -- --------------------------------------------------------
 
@@ -121,6 +141,7 @@ INSERT INTO `kplanttype` (`Ptid`, `Jname`, `Tbrief`) VALUES
 
 CREATE TABLE `lcomment` (
   `Cid` char(32) COLLATE utf8_bin NOT NULL COMMENT '评论号',
+  `Oaid` char(32) COLLATE utf8_bin NOT NULL COMMENT '文章号',
   `Ycontent` varchar(512) COLLATE utf8_bin NOT NULL COMMENT '评论内容',
   `Udate` char(16) COLLATE utf8_bin NOT NULL COMMENT '评论日期',
   `Tpicture` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '图片地址',
@@ -210,6 +231,7 @@ CREATE TABLE `nreportday` (
 CREATE TABLE `oreply` (
   `Rid` char(32) COLLATE utf8_bin NOT NULL COMMENT '回复号',
   `Hcid` char(32) COLLATE utf8_bin NOT NULL COMMENT '评论号',
+  `Jnickname` varchar(12) COLLATE utf8_bin NOT NULL COMMENT '回复用户昵称',
   `Xcontent` varchar(512) COLLATE utf8_bin NOT NULL COMMENT '回复内容',
   `Adate` char(16) COLLATE utf8_bin NOT NULL COMMENT '回复日期',
   `Epicture` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '图片地址',
@@ -231,6 +253,32 @@ CREATE TABLE `tmymessage` (
   `Lcomment` varchar(512) COLLATE utf8_bin NOT NULL COMMENT '评论内容',
   `Muser` char(20) COLLATE utf8_bin NOT NULL COMMENT '消息接收者'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='记录用户消息情况';
+
+-- --------------------------------------------------------
+
+--
+-- 替换视图以便查看 `view_user_fans`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_user_fans` (
+`account` char(20)
+,`head` varchar(32)
+,`nickname` varchar(12)
+,`user` char(20)
+);
+
+-- --------------------------------------------------------
+
+--
+-- 替换视图以便查看 `view_user_focus`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_user_focus` (
+`account` char(20)
+,`head` varchar(32)
+,`nickname` varchar(12)
+,`user` char(20)
+);
 
 -- --------------------------------------------------------
 
@@ -269,7 +317,29 @@ CREATE TABLE `ymyfocus` (
 --
 
 INSERT INTO `ymyfocus` (`Fid`, `Gaccount`, `Yuser`) VALUES
-('8934:-3243=368686263180713153427', '893:9955,=5%%<174808', '8934:-3243=368686263');
+('SZLPaPMX\\NpdQ`247834180713151214', 'SZLr`cA[V_ZAFT611879', 'SZLPaPMX\\NpdQ`247834'),
+('SZLPaPMX\\NpdQ`247834180713175423', 'SZLr`cd[G_ZAFT518319', 'SZLPaPMX\\NpdQ`247834'),
+('SZLr`cA[V_ZAFT611879180713184536', 'SZLr`cd[G_ZAFT518319', 'SZLr`cA[V_ZAFT611879'),
+('SZLr`cA[V_ZAFT611879180714231547', 'SZLPaPMX\\NpdQ`247834', 'SZLr`cA[V_ZAFT611879'),
+('SZLr`cd[G_ZAFT518319180703152442', 'SZLr`cA[V_ZAFT611879', 'SZLr`cd[G_ZAFT518319');
+
+-- --------------------------------------------------------
+
+--
+-- 视图结构 `view_user_fans`
+--
+DROP TABLE IF EXISTS `view_user_fans`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_user_fans`  AS  select `u`.`Jaccount` AS `account`,`u`.`Uhead` AS `head`,`u`.`Onickname` AS `nickname`,`mf`.`Gaccount` AS `user` from (`ymyfocus` `mf` left join `iuser` `u` on((`mf`.`Yuser` = `u`.`Jaccount`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- 视图结构 `view_user_focus`
+--
+DROP TABLE IF EXISTS `view_user_focus`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_user_focus`  AS  select `u`.`Jaccount` AS `account`,`u`.`Uhead` AS `head`,`u`.`Onickname` AS `nickname`,`mf`.`Yuser` AS `user` from (`ymyfocus` `mf` left join `iuser` `u` on((`mf`.`Gaccount` = `u`.`Jaccount`))) ;
 
 --
 -- Indexes for dumped tables
@@ -297,6 +367,12 @@ ALTER TABLE `iuser`
   ADD UNIQUE KEY `Jaccount` (`Jaccount`);
 
 --
+-- Indexes for table `jmythumbsup`
+--
+ALTER TABLE `jmythumbsup`
+  ADD PRIMARY KEY (`Ntid`);
+
+--
 -- Indexes for table `kplanttype`
 --
 ALTER TABLE `kplanttype`
@@ -308,7 +384,8 @@ ALTER TABLE `kplanttype`
 --
 ALTER TABLE `lcomment`
   ADD PRIMARY KEY (`Cid`),
-  ADD KEY `comment_account` (`Xaccount`);
+  ADD KEY `comment_account` (`Xaccount`),
+  ADD KEY `comment_aid` (`Oaid`);
 
 --
 -- Indexes for table `ndevice`
@@ -344,6 +421,7 @@ ALTER TABLE `tmymessage`
 -- Indexes for table `warticle`
 --
 ALTER TABLE `warticle`
+  ADD PRIMARY KEY (`Aid`),
   ADD KEY `article_account` (`Maccount`),
   ADD KEY `article_topic` (`Itopic`);
 
@@ -363,20 +441,17 @@ ALTER TABLE `ymyfocus`
 -- 使用表AUTO_INCREMENT `ftopic`
 --
 ALTER TABLE `ftopic`
-  MODIFY `Tid` int(2) NOT NULL AUTO_INCREMENT COMMENT '话题号';
-
+  MODIFY `Tid` int(2) NOT NULL AUTO_INCREMENT COMMENT '话题号', AUTO_INCREMENT=3;
 --
 -- 使用表AUTO_INCREMENT `kplanttype`
 --
 ALTER TABLE `kplanttype`
   MODIFY `Ptid` int(2) NOT NULL AUTO_INCREMENT COMMENT '植物分类号', AUTO_INCREMENT=11;
-
 --
 -- 使用表AUTO_INCREMENT `nplant`
 --
 ALTER TABLE `nplant`
   MODIFY `Pid` int(6) NOT NULL AUTO_INCREMENT COMMENT '植物号', AUTO_INCREMENT=2;
-
 --
 -- 限制导出的表
 --
@@ -391,7 +466,8 @@ ALTER TABLE `gmycollection`
 -- 限制表 `lcomment`
 --
 ALTER TABLE `lcomment`
-  ADD CONSTRAINT `comment_account` FOREIGN KEY (`Xaccount`) REFERENCES `iuser` (`Jaccount`);
+  ADD CONSTRAINT `comment_account` FOREIGN KEY (`Xaccount`) REFERENCES `iuser` (`Jaccount`),
+  ADD CONSTRAINT `comment_aid` FOREIGN KEY (`Oaid`) REFERENCES `warticle` (`Aid`);
 
 --
 -- 限制表 `ndevice`
@@ -431,9 +507,8 @@ ALTER TABLE `warticle`
 -- 限制表 `ymyfocus`
 --
 ALTER TABLE `ymyfocus`
-  ADD CONSTRAINT `focus_account` FOREIGN KEY (`Gaccount`) REFERENCES `iuser` (`Jaccount`),
-  ADD CONSTRAINT `focus_user` FOREIGN KEY (`Yuser`) REFERENCES `iuser` (`Jaccount`);
-COMMIT;
+  ADD CONSTRAINT `focus_account` FOREIGN KEY (`Gaccount`) REFERENCES `iuser` (`Jaccount`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `focus_user` FOREIGN KEY (`Yuser`) REFERENCES `iuser` (`Jaccount`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

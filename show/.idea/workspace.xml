@@ -17,8 +17,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="285" column="14" lean-forward="true" selection-start-line="285" selection-start-column="14" selection-end-line="285" selection-end-column="14" />
+            <state relative-caret-position="59">
+              <caret line="284" column="17" lean-forward="true" selection-start-line="284" selection-start-column="17" selection-end-line="284" selection-end-column="17" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
@@ -46,7 +46,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="66" />
     <option name="y" value="43" />
     <option name="width" value="1108" />
@@ -116,16 +116,15 @@
       <updated>1530771878151</updated>
       <workItem from="1530771881231" duration="6737000" />
       <workItem from="1530850098776" duration="1826000" />
-      <workItem from="1530935093940" duration="3391000" />
+      <workItem from="1530935093940" duration="4075000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11954000" />
+    <option name="totallyTimeSpent" value="12638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="66" y="43" width="1108" height="654" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24953271" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -220,8 +219,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="285" column="14" lean-forward="true" selection-start-line="285" selection-start-column="14" selection-end-line="285" selection-end-column="14" />
+        <state relative-caret-position="59">
+          <caret line="284" column="17" lean-forward="true" selection-start-line="284" selection-start-column="17" selection-end-line="284" selection-end-column="17" />
           <folding>
             <element signature="n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
