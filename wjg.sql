@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-07-15 11:13:07
+-- Generation Time: 2018-07-16 13:48:20
 -- 服务器版本： 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -257,6 +257,72 @@ CREATE TABLE `tmymessage` (
 -- --------------------------------------------------------
 
 --
+-- 替换视图以便查看 `view_comment`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_comment` (
+`id` char(32)
+,`aid` char(32)
+,`content` varchar(512)
+,`date` char(16)
+,`picture` varchar(32)
+,`countLike` int(3)
+,`account` char(20)
+,`head` varchar(32)
+,`nickname` varchar(12)
+);
+
+-- --------------------------------------------------------
+
+--
+-- 替换视图以便查看 `view_comment_reply`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_comment_reply` (
+`id` char(32)
+,`cid` char(32)
+,`content` varchar(512)
+,`date` char(16)
+,`picture` varchar(32)
+,`nickname` varchar(12)
+,`account` char(20)
+,`userNickname` varchar(12)
+);
+
+-- --------------------------------------------------------
+
+--
+-- 替换视图以便查看 `view_reply`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_reply` (
+`id` char(32)
+,`cid` char(32)
+,`content` varchar(512)
+,`date` char(16)
+,`picture` varchar(32)
+,`countLike` int(3)
+,`nickname` varchar(12)
+,`account` char(20)
+,`head` varchar(32)
+,`userNickname` varchar(12)
+);
+
+-- --------------------------------------------------------
+
+--
+-- 替换视图以便查看 `view_topic`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_topic` (
+`id` int(2)
+,`title` varchar(10)
+,`brief` varchar(128)
+);
+
+-- --------------------------------------------------------
+
+--
 -- 替换视图以便查看 `view_user_fans`
 -- (See below for the actual view)
 --
@@ -322,6 +388,42 @@ INSERT INTO `ymyfocus` (`Fid`, `Gaccount`, `Yuser`) VALUES
 ('SZLr`cA[V_ZAFT611879180713184536', 'SZLr`cd[G_ZAFT518319', 'SZLr`cA[V_ZAFT611879'),
 ('SZLr`cA[V_ZAFT611879180714231547', 'SZLPaPMX\\NpdQ`247834', 'SZLr`cA[V_ZAFT611879'),
 ('SZLr`cd[G_ZAFT518319180703152442', 'SZLr`cA[V_ZAFT611879', 'SZLr`cd[G_ZAFT518319');
+
+-- --------------------------------------------------------
+
+--
+-- 视图结构 `view_comment`
+--
+DROP TABLE IF EXISTS `view_comment`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_comment`  AS  select `c`.`Cid` AS `id`,`c`.`Oaid` AS `aid`,`c`.`Ycontent` AS `content`,`c`.`Udate` AS `date`,`c`.`Tpicture` AS `picture`,`c`.`Klike` AS `countLike`,`u`.`Jaccount` AS `account`,`u`.`Uhead` AS `head`,`u`.`Onickname` AS `nickname` from (`lcomment` `c` left join `iuser` `u` on((`c`.`Xaccount` = `u`.`Jaccount`))) order by `c`.`Udate` desc ;
+
+-- --------------------------------------------------------
+
+--
+-- 视图结构 `view_comment_reply`
+--
+DROP TABLE IF EXISTS `view_comment_reply`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_comment_reply`  AS  select `r`.`Rid` AS `id`,`r`.`Hcid` AS `cid`,`r`.`Xcontent` AS `content`,`r`.`Adate` AS `date`,`r`.`Epicture` AS `picture`,`r`.`Jnickname` AS `nickname`,`u`.`Jaccount` AS `account`,`u`.`Onickname` AS `userNickname` from (`oreply` `r` left join `iuser` `u` on((`r`.`Waccount` = `u`.`Jaccount`))) order by `r`.`Adate` desc ;
+
+-- --------------------------------------------------------
+
+--
+-- 视图结构 `view_reply`
+--
+DROP TABLE IF EXISTS `view_reply`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_reply`  AS  select `r`.`Rid` AS `id`,`r`.`Hcid` AS `cid`,`r`.`Xcontent` AS `content`,`r`.`Adate` AS `date`,`r`.`Epicture` AS `picture`,`r`.`Qlike` AS `countLike`,`r`.`Jnickname` AS `nickname`,`u`.`Jaccount` AS `account`,`u`.`Uhead` AS `head`,`u`.`Onickname` AS `userNickname` from (`oreply` `r` left join `iuser` `u` on((`r`.`Waccount` = `u`.`Jaccount`))) order by `r`.`Adate` desc ;
+
+-- --------------------------------------------------------
+
+--
+-- 视图结构 `view_topic`
+--
+DROP TABLE IF EXISTS `view_topic`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_topic`  AS  select `t`.`Tid` AS `id`,`t`.`Ytitle` AS `title`,`t`.`Cbrief` AS `brief` from `ftopic` `t` ;
 
 -- --------------------------------------------------------
 
