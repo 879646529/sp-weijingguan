@@ -10,6 +10,17 @@ FROM ftopic AS t;
 
 SELECT * FROM ftopic;
 
+# 用户信息视图
+SELECT * FROM iuser;
+
+CREATE VIEW view_user AS
+SELECT u.Hwxkey AS 'wxkey', u.Jaccount AS 'account', u.Uhead AS 'head', u.Onickname AS 'nickname',
+u.Nfocus AS 'countFocus', u.Mfans AS 'countFans', u.Hcollect AS 'countCollect', u.Darticle AS 'countArticle',
+u.Tdate AS 'date'
+FROM iuser AS u;
+
+SELECT * FROM view_user;
+
 # 我的关注视图
 DROP VIEW view_user_focus;
 CREATE VIEW view_user_focus AS
@@ -28,6 +39,34 @@ FROM ymyfocus AS mf LEFT JOIN iuser AS u
 ON mf.Yuser = u.Jaccount;
 
 SELECT * FROM view_user_fans;
+
+# 我的收藏视图
+CREATE VIEW view_user_collect AS
+SELECT a.Aid AS 'id', a.Htitle As 'title',
+c.Udate AS 'date', c.Wuser AS 'account'
+FROM gmycollection AS c LEFT JOIN warticle AS a
+ON c.Haid = a.Aid ORDER BY c.Udate DESC;
+
+SELECT * FROM view_user_collect;
+
+# 我的文章视图
+CREATE VIEW view_user_article AS
+SELECT a.Aid AS 'id', a.Htitle AS 'title', a.Kdate AS 'date', a.Maccount AS 'account'
+FROM warticle AS a ORDER BY a.Kdate DESC;
+
+SELECT * FROM view_user_article;
+
+# 我的消息视图
+CREATE VIEW view_message AS
+SELECT u.Jaccount AS 'sender', u.Uhead AS 'head', u.Onickname AS 'nickname',
+a.Aid AS 'aid', a.Htitle AS 'title',
+m.Qdate AS 'date', m.Ptype AS 'type', m.Lcomment AS 'comment', m.Muser AS 'account'
+FROM tmymessage AS m 
+LEFT JOIN iuser AS u ON m.Uaccount = u.Jaccount 
+LEFT JOIN warticle AS a ON m.Baid = a.Aid 
+ORDER BY m.Qdate DESC;
+
+SELECT * FROM view_message;
 
 # 文章评论视图
 CREATE VIEW view_comment AS
