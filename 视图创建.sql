@@ -68,6 +68,13 @@ ORDER BY m.Qdate DESC;
 
 SELECT * FROM view_message;
 
+# 关注判断视图 ~新增
+CREATE VIEW view_judge_focus AS
+SELECT y.Fid AS 'id', y.Gaccount AS 'account', y.Yuser AS 'user'
+FROM ymyfocus AS f
+
+SELECT * FRO M view_judge_focus;
+
 # 文章评论视图
 CREATE VIEW view_comment AS
 SELECT c.Cid AS 'id', c.Oaid AS 'aid', c.Ycontent AS 'content', 
