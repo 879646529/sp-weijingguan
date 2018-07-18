@@ -3,6 +3,38 @@ use wjg;
 SELECT * FROM ymyfocus;
 SELECT * FROM iuser;
 
+# 今日植物挑选视图 ~
+CREATE VIEW view_plant_today_select AS
+SELECT p.Pid AS 'id'
+FROM nplant AS p LEFT JOIN btoday AS t
+ON p.Pid = t.Dpid WHERE t.Dpid IS NULL;
+
+SELECT * FROM view_plant_today_select;
+
+# 今日植物视图 ~
+CREATE VIEW view_plant_today AS
+SELECT p.Pid AS 'id', p.Cname AS 'name', p.Ksname AS 'sname', p.Ypicture AS 'picture',
+p.Hcharacteristics AS 'characteristics', p.Rflang AS 'flang', t.Udate AS 'date'
+FROM btoday AS t LEFT JOIN nplant AS p
+ON t.Dpid = p.Pid;
+
+SELECT * FROM view_plant_today_select;
+
+# 热门搜索视图 ~
+CREATE VIEW view_plant_popular AS
+SELECT p.Pid AS 'id', p.Cname AS 'name', p.Ypicture AS 'picture'
+FROM jpopularsearch AS ps LEFT JOIN nplant AS p
+ON ps.Epid = p.Pid ORDER BY ps.Ycount DESC LIMIT 0, 20;
+
+SELECT * FROM view_plant_popular;
+
+# 植物分类视图 ~
+CREATE VIEW view_plant_type AS
+SELECT pt.Ptid AS 'id', pt.Jname AS 'name', pt.Tbrief AS 'brief'
+FROM kplanttype AS pt;
+
+SELECT * FROM view_plant_type;
+
 # 话题视图
 CREATE VIEW view_topic AS
 SELECT t.Tid AS 'id', t.Ytitle AS 'title', t.Cbrief AS 'brief'
