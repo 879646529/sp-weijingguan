@@ -3,7 +3,47 @@ use wjg;
 SELECT * FROM ymyfocus;
 SELECT * FROM iuser;
 
-# 今日植物挑选视图 ~
+# 设备信息视图
+CREATE VIEW view_device AS
+SELECT d.Ocode AS 'code', d.Lpicture AS 'alterPic',
+p.Pid AS 'pid', p.Cname AS 'name', p.Ksname AS 'sname', p.Ypicture AS 'picture',
+d. Uaccount AS 'account'
+FROM ndevice AS d LEFT JOIN nplant AS p
+ON d.Ipid = p.Pid;
+
+SELECT * FROM view_device;
+
+# 检测数据视图
+CREATE VIEW view_record AS
+SELECT r.Vdate AS 'date', r.Ntemperature AS 'temperature', r.Wmoisture AS 'moisture',
+r.Eillumination AS 'illumination', r.Ofertility AS 'fertility', r.Haccount AS 'account'
+FROM jrecord AS r;
+
+SELECT * FROM view_record;
+
+# 周历史记录视图
+CREATE VIEW view_report_week AS
+SELECT rd.Hdate AS 'date', rd.Bcount AS 'count', rd.Ctemperature AS 'temperature', rd.Imoisture AS 'moisture', 
+rd.Pillumination AS 'illumination', rd.Mfertility AS 'fertility', rd.Kaccount AS 'account'
+FROM nreportday AS rd ORDER BY rd.Hdate DESC;
+
+SELECT * FROM view_report_week;
+
+# 月历史记录视图
+CREATE VIEW view_report_month AS
+SELECT rm.Vdate AS 'start', rm.Ncount AS 'count', rm.Gtemperature AS 'temperature', rm.Hmoisture AS 'moisture', 
+rm.Jillumination AS 'illumination', rm.Sfertility AS 'fertility', rm.Qaccount AS 'account'
+FROM mreportmonth AS rm ORDER BY rm.Vdate DESC;
+
+SELECT * FROM view_report_month;
+
+# 植物种类视图
+CREATE VIEW view_plant_kind AS
+SELECT p.Pid AS 'id', p.Cname AS 'name'
+FROM nplant AS p;
+
+SELECT * FROM nplant;
+# 今日植物挑选视图
 CREATE VIEW view_plant_today_select AS
 SELECT p.Pid AS 'id'
 FROM nplant AS p LEFT JOIN btoday AS t
@@ -11,16 +51,16 @@ ON p.Pid = t.Dpid WHERE t.Dpid IS NULL;
 
 SELECT * FROM view_plant_today_select;
 
-# 今日植物视图 ~
+# 今日植物视图
 CREATE VIEW view_plant_today AS
 SELECT p.Pid AS 'id', p.Cname AS 'name', p.Ksname AS 'sname', p.Ypicture AS 'picture',
 p.Hcharacteristics AS 'characteristics', p.Rflang AS 'flang', t.Udate AS 'date'
 FROM btoday AS t LEFT JOIN nplant AS p
 ON t.Dpid = p.Pid;
 
-SELECT * FROM view_plant_today_select;
+SELECT * FROM view_plant_today;
 
-# 热门搜索视图 ~
+# 热门搜索视图
 CREATE VIEW view_plant_popular AS
 SELECT p.Pid AS 'id', p.Cname AS 'name', p.Ypicture AS 'picture'
 FROM jpopularsearch AS ps LEFT JOIN nplant AS p
@@ -28,7 +68,7 @@ ON ps.Epid = p.Pid ORDER BY ps.Ycount DESC LIMIT 0, 20;
 
 SELECT * FROM view_plant_popular;
 
-# 植物分类视图 ~
+# 植物分类视图
 CREATE VIEW view_plant_type AS
 SELECT pt.Ptid AS 'id', pt.Jname AS 'name', pt.Tbrief AS 'brief'
 FROM kplanttype AS pt;
@@ -103,9 +143,9 @@ SELECT * FROM view_message;
 # 关注判断视图 ~新增
 CREATE VIEW view_judge_focus AS
 SELECT y.Fid AS 'id', y.Gaccount AS 'account', y.Yuser AS 'user'
-FROM ymyfocus AS f
+FROM ymyfocus AS f;
 
-SELECT * FRO M view_judge_focus;
+SELECT * FROM M view_judge_focus;
 
 # 文章评论视图
 CREATE VIEW view_comment AS
